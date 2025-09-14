@@ -1,0 +1,102 @@
+
+    body {
+        background-color: #fef3c7; /* Soft professional light background */
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h1, h2 {
+        text-align: center;
+        margin-top: 30px;
+        color: #333;
+    }
+    
+    h1 {
+        font-size: 36px;
+        font-weight: 700;
+    }
+    
+    h2 {
+        font-size: 28px;
+        font-weight: 600;
+        color: #555;
+    }
+    
+    .contact {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact ul {
+        padding-left: 0;
+    }
+    
+    .contact ul li {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 20px 0;
+        font-size: 22px;
+    }
+    
+    .contact ul li img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+    }
+    .contact ul li a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    footer {
+        background-color: #222;
+        color: #f0f0f0;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    footer h1 {
+        font-size: 32px;
+        color: #ffa550;
+    }
+    
+    footer h1 span {
+        color: #fff;
+    }
+    
+    footer .social-links {
+        margin: 20px 0;
+        font-size: 24px;
+    }
+    
+    footer .social-links i {
+        margin: 0 10px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+    
+    footer .social-links i:hover {
+        color: #ffa550;
+    }
+    
+    footer .credit, footer .copyright {
+        font-size: 14px;
+        margin-top: 10px;
+        color: #555;
+    }
+    
+    footer .credit a {
+        color: #ffa550;
+        text-decoration: none;
+    }
+    
+    footer .credit a:hover {
+        text-decoration: underline;
+    }
+    

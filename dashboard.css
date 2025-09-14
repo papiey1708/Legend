@@ -1,0 +1,130 @@
+/* Basic styles for the admin dashboard */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+    header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    }
+    
+    logosec {
+    display: flex;
+    align-items: center;
+    }
+    
+    logo {
+    font-size: 24px;
+    font-weight: bold;
+    }
+    
+    searchbar {
+    display: flex;
+    align-items: center;
+    }
+    
+    searchbar input {
+    padding: 5px;
+    margin-right: 10px;
+    }
+    
+    searchbtn img {
+    width: 20px;
+    height: 20px;
+    }
+    
+    message {
+    display: flex;
+    align-items: center;
+    }
+    
+    message .circle {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 10px;
+    }
+    
+    dp img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    }
+    
+    main-container {
+    display: flex;
+    }
+    
+    navcontainer {
+    width: 200px;
+    background-color: #f4f4f4;
+    }
+    
+    nav {
+    padding: 20px;
+    }
+    
+    nav-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    }
+    
+    nav-option img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    }
+    
+    main {
+    flex: 1;
+    padding: 20px;
+    }
+    
+    box-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    }
+    
+    box {
+    width: 23%;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    report-container {
+    margin-top: 20px;
+    }
+    
+    report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    
+    report-body {
+    margin-top: 10px;
+    }
+    
+    items {
+    display: flex;
+    flex-direction: column;
+    }
+    
+    item1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    }
