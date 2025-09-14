@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="../CSS FILES/places.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <!--css for chatbot-->
+  <link rel="stylesheet" href="../CSS FILES/chatbot.css">
+  <!--java script for chat bot-->
+  <link rel="stylesheet" href="../CSS FILES/places.css">
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefce8;
+      color: #1f2937;
+      padding: 32px;
+    }
+    h1, h2, h3 {
+      margin-bottom: 16px;
+      color: #78350f;
+    }
+    .section {
+      background: #fff7ed;
+      border: 1px solid #fde68a;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    
+    .card img{
+      width: 410px;
+      height: 360px;
+    }
+    
+    .card {
+    display: inline-block;
+    margin: 25px;
+    text-align: center;
+      background: #fef3c7;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+      width: 425px;
+      height: 350px;
+    }
+    .card1 {
+    display: inline-block;
+    line-height: 27px;
+    margin: 10px;
+    text-align: left;
+      background: #fef3c7;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+      width: 350px;
+      height: 250px;
+    }
+    .btn {
+      background: #facc15;
+      color: #78350f;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 8px;
+    }
+    .btn:hover {
+      background: #eab308;
+    }
+    ul { list-style: none; padding-left: 0; }
+    li { margin-bottom: 10px; }
+    .subtext { font-size: 14px; color: #6b7280; }
+    .grid { display: grid; gap: 16px; }
+    .read-more-btn {
+      color: blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .close {
+      color: red;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #booking{
+      width: 100%;
+      padding: 2%;
+      background: #eab308;
+      
+      
+    }
+    #booking a{
+      text-decoration: none;
+      color: #fff7ed;
+    }
+    #logout{
+    
+      background:  #eab308;
+    
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+    #logout a{
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="welcomeHeader">👋 Welcome, [User Name]</h1>
+  <a href="TXHome.html"><button type="button" id="logout">LOG OUT</button></a>
+
+  <div class="section">
+    
+    <p>Email: <span id="user-email">Not available</span></p>
+    <p>Phone: <span id="user-phone">Not available</span></p>
+
+
+  </div>
+
+  
+  
+
+  <div class="section">
+    <h2>📅 My Bookings</h2>
+    <div class="card1">
+      <strong>Tour:</strong> Destination......<br>
+      <strong>Booking ID:</strong> .............<br>
+      <strong>Date:</strong> ............... <br>
+      <strong>Time:</strong> ........<br>
+      <strong>Number of people:</strong> ...........<br>
+      <strong>Booking Status:</strong> ........<br>
+      <strong>Payment Status:</strong>..............<br>
+      <button class="btn">Cancel</button>
+      <button class="btn">Reschedule</button>
+      <button class="btn">View Invoice</button>
+    </div>
+  </div>
+
+
+
+  <div class="card">
+    <img src="../Places To Visit/Basotho-Cultural-Village.jpg" alt="Basotho-Cultural-Village">
+    <div class="card-body">
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+      </div>
+      <p>
+        Basotho Cultural Village
+        <span class="read-more-btn" data-full="Located in the scenic Golden Gate Highlands National Park in the Free State, the Basotho Cultural Village offers visitors an immersive experience into the rich heritage of the Basotho people. Guests are guided through traditionally styled homesteads that represent different historical periods, from the 16th century to modern times. Visitors can interact with villagers dressed in authentic Basotho attire, observe traditional food preparation, and learn about customary laws, music, and spiritual beliefs. The village also showcases Basotho arts and crafts, including intricate beadwork and woven items. Cultural performances and storytelling bring the Basotho lifestyle to life, making it an educational and entertaining experience for all ages. Surrounded by sandstone mountains, the environment enhances the cultural journey with breathtaking natural beauty. The Basotho Cultural Village serves as both a preservation site and a celebration of a proud heritage rooted in resilience, unity, and tradition.
+        ">Read More</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  <div class="card">
+    <img src="../Places To Visit/Cata-Cultural-Village.jpg" alt="Basotho-Cultural-Village">
+    <div class="card-body">
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+      </div>
+      <p>
+        Cata Cultural Village
+        <span class="read-more-btn" data-full="Nestled in the picturesque Amathole Mountains of the Eastern Cape, Cata Cultural Village offers a rich and authentic Xhosa experience. The village is part of a community-based tourism initiative that allows visitors to engage directly with local traditions. Guests can enjoy homestays with Xhosa families, participate in traditional cooking, observe beadwork and craft-making, and learn about the social structures and customs of the Xhosa people. Cultural experiences include stick fighting, storytelling, and initiation customs, all conveyed with deep respect for authenticity. Surrounded by lush forest and natural beauty, Cata is also ideal for hiking and nature walks. The village reflects a sustainable model of cultural preservation, where tourism directly benefits the local community. Cata Cultural Village is more than a tourist stop—it is a genuine cultural exchange and an opportunity to connect with one of South Africa’s most vibrant indigenous groups.
+        ">Read More</span>
+      </p>
+    </div>
+  </div>
+  
+  <div class="card">
+    <img src="../Places To Visit/DumaZulu-Cultural-Village.jpg" alt="Basotho-Cultural-Village">
+    <div class="card-body">
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+      </div>
+      <p>
+        DumaZulu Cultural Village
+        <span class="read-more-btn" data-full="DumaZulu Cultural Village, located near Hluhluwe in KwaZulu-Natal, is the largest Zulu cultural village in South Africa. The village offers a living museum experience, where visitors are introduced to the traditional Zulu way of life. The layout mimics an authentic Zulu kraal, complete with huts, livestock, and a traditional healing practice led by a sangoma (diviner). Guests can witness spear-making, pottery, and weaving, and experience spirited performances of Zulu song and dance. DumaZulu aims to preserve Zulu heritage while educating visitors through interactive tours and demonstrations. The village also provides opportunities to purchase locally made crafts and sample traditional cuisine. With its name meaning “thunder of the Zulu,” DumaZulu is a powerful celebration of culture, history, and identity, offering both entertainment and education in a respectful, engaging setting.
+        ">Read More</span>
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../Places To Visit/Isinamva-Cultural-Village.jpg" alt="Basotho-Cultural-Village">
+    <div class="card-body">
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+      </div>
+      <p>
+        Isinamva Cultural Village
+        <span class="read-more-btn" data-full="Situated in the Eastern Cape, Isinamva Cultural Village is a community-led project that showcases the cultural richness of the Xhosa people. The village provides visitors with firsthand experiences of traditional Xhosa lifestyles, including ceremonies, music, and dance. Guests are welcomed into rondavels (round huts) and can participate in daily activities such as maize grinding, storytelling, and the preparation of traditional meals. The cultural program often includes insights into the importance of ancestry, rites of passage, and the role of elders in Xhosa society. Isinamva emphasizes cultural pride and community empowerment, with proceeds supporting local development. Its focus on authentic interaction rather than performance makes it ideal for travelers seeking a deeper cultural connection. The serene rural surroundings enhance the immersive experience, offering a peaceful retreat into South Africa’s cultural heartland.
+        ">Read More</span>
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../Places To Visit/Khaya-La-Bantu-Cultural-Village.jpg" alt="Basotho-Cultural-Village">
+    <div class="card-body">
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+      </div>
+      <p>
+        Khaya La Bantu Cultural Village
+        <span class="read-more-btn" data-full="Khaya La Bantu, meaning Home of the People, is a vibrant Xhosa cultural village located near East London in the Eastern Cape. It offers an authentic immersion into traditional Xhosa life, complete with warm hospitality, cultural education, and lively performances. Visitors are welcomed with song and dance, followed by guided tours that explain the social structure, dress code, and family traditions of the Xhosa community. Traditional meals, served in beehive-shaped huts, allow guests to taste the flavors of rural Xhosa cuisine. The village also includes craft displays and storytelling sessions that share historical and spiritual narratives. Khaya La Bantu stands out for its sense of community and pride in heritage. It is an ideal destination for school groups, tourists, and cultural enthusiasts interested in understanding one of South Africa’s major ethnic groups through real-life engagement and learning."
+
+        >Read More</span>
+      </p>
+    </div>
+  </div><div class="card">
+    <img src="../Places To Visit/lesedi-cultural-village.jpg" alt="Basotho-Cultural-Village">
+    <div class="card-body">
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+      </div>
+      <p>
+        Lesedi Cultural Village
+        <span class="read-more-btn" data-full="Located near Johannesburg and Pretoria, Lesedi Cultural Village is a multi-cultural tourism destination that celebrates the diversity of South Africa’s indigenous tribes. Visitors are introduced to five cultural groups—Zulu, Xhosa, Basotho, Pedi, and Ndebele—through guided tours, traditional homestead displays, and interactive storytelling. Each village represents a specific cultural identity with distinct architecture, customs, and attire. The experience includes dance performances, drumming sessions, and an African buffet featuring dishes from across the continent. Lesedi (meaning “light” in Sotho) emphasizes unity in diversity, offering a condensed yet insightful exploration of South Africa’s heritage. It is popular among international tourists and educational groups for its informative yet entertaining approach. The cultural village also offers overnight stays, allowing guests to sleep in traditional-style accommodations while experiencing the rhythms of rural African life. Lesedi provides a gateway to understanding the heart of South African identity">Read More</span>
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../Places To Visit/Matsamo-Cultural-Village.jpg" alt="Basotho-Cultural-Village">
+    <div class="card-body">
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+      </div>
+      <p>
+        Matsamo Cultural Village
+        <span class="read-more-btn" data-full="Matsamo Cultural Village, located near the border of Eswatini (Swaziland) and Mpumalanga province, offers a vibrant display of Swazi culture and traditions. The village features traditional Swazi homesteads, where visitors can engage in daily village life, observe traditional farming techniques, and participate in cultural rituals. One of the main highlights is the energetic Swazi song and dance performances, which include the famous reed dance and warrior dances. Matsamo also features a craft market showcasing hand-woven baskets, beadwork, and wood carvings. The village’s restaurant serves traditional meals prepared with local ingredients, giving guests a taste of authentic Swazi cuisine. Educational and interactive, Matsamo aims to preserve Swazi culture while providing sustainable benefits to the local community. It is a must-visit for travelers seeking cultural richness, hospitality, and the vibrant spirit of the Swazi people.
+        ">Read More</span>
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../Places To Visit/Shakaland-Cultural-Village.jpg" alt="Basotho-Cultural-Village">
+    <div class="card-body">
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+      </div>
+      <p>
+        Shakaland Cultural Village
+        <span class="read-more-btn" data-full="Shakaland Cultural Village, situated in KwaZulu-Natal near Eshowe, is a recreated Zulu kraal originally built as a film set for the TV series Shaka Zulu. Today, it serves as a living museum and cultural resort, offering a deep dive into Zulu history and traditions. Visitors learn about the legendary King Shaka Zulu and his military innovations, as well as everyday Zulu life through guided tours, spear-making demonstrations, and tribal dances. The experience includes beer tasting, traditional ceremonies, and interaction with Zulu villagers in full traditional attire. Shakaland provides accommodations in traditional-style huts with modern comforts, allowing guests to extend their cultural journey overnight. The village not only entertains but also educates, offering historical insight into one of South Africa’s most influential kingdoms. Its combination of dramatic storytelling and authentic engagement makes Shakaland a highlight for those interested in South Africa’s powerful Zulu legacy.">Read More</span>
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../Places To Visit/shangana-cultural-village.jpg" alt="Basotho-Cultural-Village">
+    <div class="card-body">
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+      </div>
+      <p>
+        Shangana Cultural Village
+        <span class="read-more-btn" data-full="located near Hazyview in Mpumalanga, close to the Kruger National Park, and offers a captivating experience of the traditions and daily life of the Shangaan people. The village is set in a lush forested area and features a central kraal surrounded by traditional huts, where visitors can engage in authentic cultural interactions. Guided tours provide insight into Shangaan customs, storytelling, ancestral beliefs, and social structures. Highlights include vibrant song and dance performances, craft demonstrations, and the opportunity to meet the village chief and traditional healer. One of the signature experiences is the Evening Festival, where guests enjoy a dramatic cultural performance and traditional feast under the stars. The village also supports local artisans through its bustling craft market. Shangana Cultural Village is an educational and enriching destination that preserves and celebrates the Shangaan heritage while offering visitors a warm, immersive welcome into its living traditions.">Read More</span>
+      </p>
+    </div>
+  </div>
+  
+   <!-- Reusable Modal -->
+   <div id="readMoreModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+  <!-- Toggle Button -->
+  <button class="chatbot-toggler" id="chatbotToggle">
+    <ion-icon name="chatbox-outline"></ion-icon>
+  </button>
+
+  <!-- Chatbot -->
+  <div class="chatbot" id="chatbot">
+    <header>
+      <h1>Travel Expo</h1>
+      <span class="symbol" id="chatbotClose"><ion-icon name="close-outline"></ion-icon></span>
+    </header>
+    <ul class="chatbox">
+      <li class="chat incoming">
+        <span class="symbol"><ion-icon name="logo-ionitron"></ion-icon></span>
+        <p>Hi! Welcome to Travel Expo, I am EX BOT.<br>How can I help you?</p>
+      </li>
+    </ul>
+    <div class="chat-input">
+      <textarea placeholder="Enter a message..." required></textarea>
+      <span id="send-btn" class="symbol"><ion-icon name="paper-plane-outline"></ion-icon></span>
+    </div>
+  </div>
+<a href="Booking.html"><button id="booking" type="button">BOOK YOUR TOUR</button></a>
+  <script>
+    const toggleBtn = document.getElementById("chatbotToggle");
+    const closeBtn = document.getElementById("chatbotClose");
+    const chatbot = document.getElementById("chatbot");
+
+    toggleBtn.addEventListener("click", () => {
+      chatbot.classList.toggle("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      chatbot.classList.remove("active");
+    });
+  </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const chatbox = document.querySelector(".chatbox");
+    const chatInput = document.querySelector(".chat-input textarea");
+    const sendBtn = document.querySelector("#send-btn");
+    const chatbotToggler = document.querySelector(".chatbot-toggler");
+
+    const responses = {
+        "hi": "Hi there! How can I assist you today?",
+        "travel": "Looking for travel recommendations? Mpumalanga has incredible places to explore! What kind of adventure are you looking for?",
+        "place": "Mpumalanga is known for breathtaking landscapes, wildlife, and rich history. Are you looking for nature, adventure, or cultural sites?",
+        "expo": "This is the Travel Expo chatbot! Feel free to ask me anything about tourism in Mpumalanga.",
+        "kruger": "Kruger National Park offers one of Africa’s best wildlife experiences! You can see the Big Five on a safari.",
+        "blyde": "Blyde River Canyon is one of the largest green canyons in the world with incredible viewpoints like God's Window.",
+        "sabie": "Sabie is famous for stunning waterfalls! Visit Lone Creek Falls or Bridal Veil Falls for breathtaking views.",
+        "pilgrim": "Pilgrim’s Rest is a historic gold-mining town with fascinating heritage and charming buildings.",
+        "scenery": "Mpumalanga has jaw-dropping landscapes! Check out Bourke’s Luck Potholes or enjoy panoramic views from God's Window.",
+        "culture": "Mpumalanga’s culture is vibrant and diverse, from township tours to local crafts and music festivals.",
+        "wildlife": "The Kruger National Park, Manyeleti Nature Reserve, and other parks are perfect for spotting wildlife.",
+        "adventure": "Rock climbing, hiking, fly fishing, and river rafting—Mpumalanga has it all!",
+        "default": "Sorry, I didn’t quite get that. Can you rephrase?"
+    };
+
+    async function fetchTourismInfo(query) {
+        try {
+            const response = await fetch(`https://www.mpumalanga.com/search?q=${query}`);
+            const data = await response.json();
+            return data.results[0]?.description || "I couldn’t find real-time information on that. Try asking about a specific place!";
+        } catch (error) {
+            return "Sorry, I couldn't fetch tourism information right now. Please try again later.";
+        }
+    }
+
+    async function generateResponse(userInput) {
+        const lowerCaseInput = userInput.toLowerCase();
+
+        for (const key in responses) {
+            if (lowerCaseInput.includes(key)) {
+                return responses[key];
+            }
+        }
+
+        return await fetchTourismInfo(lowerCaseInput);
+    }
+
+    chatbotToggler.addEventListener("click", () => {
+        document.body.classList.toggle("show-chatbot");
+    });
+
+    function appendMessage(sender, message) {
+        const chatItem = document.createElement("li");
+        chatItem.classList.add("chat", sender === "bot" ? "incoming" : "outgoing");
+        chatItem.innerHTML = `<p>${message}</p>`;
+        chatbox.appendChild(chatItem);
+        chatbox.scrollTop = chatbox.scrollHeight;
+    }
+    function appendMessage(sender, message) {
+        const chatItem = document.createElement("li");
+        chatItem.classList.add("chat", sender === "bot" ? "incoming" : "outgoing");
+    
+        chatItem.innerHTML = sender === "bot"
+            ? `<span class="symbol"><ion-icon name="logo-ionitron"></ion-icon></span><p>${message}</p>`
+            : `<p>${message}</p>`;
+    
+        chatbox.appendChild(chatItem);
+        chatbox.scrollTop = chatbox.scrollHeight;
+    }
+    sendBtn.addEventListener("click", async () => {
+        const userMessage = chatInput.value.trim();
+        if (userMessage === "") return;
+
+        appendMessage("user", userMessage);
+        setTimeout(async () => {
+            const botResponse = await generateResponse(userMessage);
+            appendMessage("bot", botResponse);
+        }, 600);
+
+        chatInput.value = "";
+    });
+
+    chatInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            sendBtn.click();
+        }
+    });
+});
+</script>
+
+<!-- Firebase Integration Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB_J50mzenu4Jk92C_0PylWbGWoidAcN5A",
+      authDomain: "legend-2d383.firebaseapp.com",
+      projectId: "legend-2d383",
+      storageBucket: "legend-2d383.appspot.com",
+      messagingSenderId: "662444040774",
+      appId: "1:662444040774:web:3cb8b553ea548062ede047"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    const userRef = ref(db, 'users/' + user.uid);
+    const snapshot = await get(userRef);
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      document.getElementById('welcomeHeader').textContent = `👋 Welcome, ${data.firstName}`;
+      document.getElementById('user-email').textContent = data.email;
+      document.getElementById('user-phone').textContent = data.cellNumber;
+    } else {
+      console.error("User data not found in Realtime Database.");
+    }
+  } else {
+    console.error("No user is signed in.");
+    // Optionally redirect to login page
+  }
+});
+
+  </script>
+
+
+
+<script>
+  const modal = document.getElementById("readMoreModal");
+  const modalText = document.getElementById("modal-text");
+
+  // Attach event listeners to all .read-more-btn elements
+  document.querySelectorAll('.read-more-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const fullContent = btn.getAttribute('data-full');
+      modalText.textContent = fullContent;
+      modal.style.display = "block";
+    });
+  });
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  }
+</script> 
+</body>
+</html>

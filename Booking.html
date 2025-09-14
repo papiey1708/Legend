@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tour Booking</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff8f0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #8b0000;
+    }
+
+    label {
+      margin-top: 10px;
+      display: block;
+      font-weight: bold;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #f4c200;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffcc00;
+    }
+
+    .output {
+      margin-top: 30px;
+      background: #fff3cd;
+      padding: 15px;
+      border: 1px solid #ffeeba;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📅 Tour Booking Form</h1>
+
+    <form id="bookingForm">
+      <label for="destination">Destination:</label>
+      <select id="destination" required>
+        <option value="Basotho-Cultural-Village">Basotho-Cultural-Village</option>
+        <option value="Cata-Cultural-Village">Cata-Cultural-Village</option>
+        <option value="DumaZulu-Cultural-Village">DumaZulu-Cultural-Village</option>
+        <option value="Isinamva-Cultural-Village">Isinamva-Cultural-Village</option>
+        <option value="Khaya-La-Bantu-Cultural-Village">Khaya-La-Bantu-Cultural-Village</option>
+        <option value="Lesedi-cultural-village">Lesedi-cultural-village</option>
+        <option value="Matsamo-Cultural-Village">Matsamo-Cultural-Village</option>
+        <option value="Shakaland-Cultural-Village">Shakaland-Cultural-Village</option>
+        <option value="Shangana-cultural-village">Shangana-cultural-village</option>
+      </select>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" required />
+
+      <label for="time">Time:</label>
+      <input type="time" id="time" required />
+
+      <label for="people">Number of People:</label>
+      <input type="number" id="people" required />
+
+      <input type="hidden" id="status" value="Pending" />
+      <input type="hidden" id="payment" value="Pending" />
+
+      <button type="button" onclick="simulatePayment()">💳 Pay Now</button>
+      <button type="submit">✅ Submit Booking</button>
+    </form>
+
+    <div class="output" id="output"></div>
+  </div>
+
+   <a href="User Dashboard.html"><button type="button">BACK TO USER Dashboard</button></a>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyB_J50mzenu4Jk92C_0PylWbGWoidAcN5A",
+      authDomain: "legend-2d383.firebaseapp.com",
+      projectId: "legend-2d383",
+      storageBucket: "legend-2d383.appspot.com",
+      messagingSenderId: "662444040774",
+      appId: "1:662444040774:web:3cb8b553ea548062ede047",
+      measurementId: "G-RSES5RHEN2"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Booking Submit Handler
+    document.getElementById("bookingForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const booking = {
+        destination: document.getElementById("destination").value,
+        bookingId: "BKG" + Math.floor(Math.random() * 1000000),
+        date: document.getElementById("date").value,
+        time: document.getElementById("time").value,
+        people: document.getElementById("people").value,
+        status: "Pending",
+        payment: "Pending",
+        timestamp: new Date()
+      };
+
+      db.collection("Bookings").add(booking)
+        .then(() => {
+          alert("✅ Booking successfully submitted to Firebase!");
+          document.getElementById("bookingForm").reset();
+        })
+        .catch((error) => {
+          alert("❌ Failed to submit booking: " + error.message);
+        });
+    });
+
+    function simulatePayment() {
+      window.open("https://pay.yoco.com/r/2w86Zk", "_blank");
+    }
+  </script>
+</body>
+</html>

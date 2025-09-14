@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signup & Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 300px;
+    }
+    h2 {
+      text-align: center;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .toggle {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .toggle span {
+      color: #007bff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 id="formTitle">Sign Up</h2>
+    <form id="authForm">
+      <input type="text" id="firstName" placeholder="First Name" required />
+      <input type="text" id="middleName" placeholder="Middle Name" />
+      <input type="text" id="lastName" placeholder="Last Name" required />
+      <input type="text" id="idNumber" placeholder="ID Number" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="text" id="cellNumber" placeholder="Cell Number" required />
+      <input type="text" id="address" placeholder="Address" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit" id="submitBtn">Sign Up</button>
+    </form>
+
+    <div class="toggle" id="toggleText">
+      Already have an account? <span id="toggleLink">Login</span>
+    </div>
+  </div>
+
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+  import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
+  } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+  import {
+    getDatabase,
+    ref,
+    set
+  } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB_J50mzenu4Jk92C_0PylWbGWoidAcN5A",
+    authDomain: "legend-2d383.firebaseapp.com",
+    projectId: "legend-2d383",
+    storageBucket: "legend-2d383.appspot.com",
+    messagingSenderId: "662444040774",
+    appId: "1:662444040774:web:3cb8b553ea548062ede047",
+    databaseURL: "https://legend-2d383-default-rtdb.firebaseio.com"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getDatabase(app);
+
+  const form = document.getElementById("authForm");
+  const formTitle = document.getElementById("formTitle");
+  const submitBtn = document.getElementById("submitBtn");
+  const toggleText = document.getElementById("toggleText");
+
+  let isLogin = false;
+
+  const updateFormMode = () => {
+    formTitle.textContent = isLogin ? "Login" : "Sign Up";
+    submitBtn.textContent = isLogin ? "Login" : "Sign Up";
+
+    // Toggle field visibility
+    const extraFields = ["firstName", "middleName", "lastName", "idNumber", "address", "cellNumber"];
+    extraFields.forEach(id => {
+      const field = document.getElementById(id);
+      if (field) {
+        field.style.display = isLogin ? "none" : "block";
+      }
+    });
+
+    // Update toggle link
+    toggleText.innerHTML = isLogin
+      ? `Don't have an account? <span id="toggleLink">Sign Up</span>`
+      : `Already have an account? <span id="toggleLink">Login</span>`;
+
+    // Reattach event listener
+    document.getElementById("toggleLink").addEventListener("click", () => {
+      isLogin = !isLogin;
+      updateFormMode();
+    });
+  };
+
+  updateFormMode();
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!isLogin) {
+      const firstName = document.getElementById("firstName").value.trim();
+      const middleName = document.getElementById("middleName").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+      const idNumber = document.getElementById("idNumber").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const cellNumber = document.getElementById("cellNumber").value.trim();
+
+      try {
+        const userCred = await createUserWithEmailAndPassword(auth, email, password);
+        const userData = {
+          firstName,
+          middleName,
+          lastName,
+          idNumber,
+          email,
+          address,
+          cellNumber,
+          role: "user"
+        };
+
+        await set(ref(db, 'users/' + userCred.user.uid), userData);
+
+        alert("✅ Account created successfully! Redirecting to login...");
+        window.location.href = "login.html";
+      } catch (error) {
+        alert("❌ Signup Error: " + error.message);
+      }
+
+    } else {
+      try {
+        const userCred = await signInWithEmailAndPassword(auth, email, password);
+        alert("✅ Login successful!");
+        window.location.href = "login.html"; // Adjust path if needed
+      } catch (error) {
+        alert("❌ Login Error: " + error.message);
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
