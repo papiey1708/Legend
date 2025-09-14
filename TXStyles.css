@@ -1,0 +1,170 @@
+body{
+    background-color:white;
+    margin: auto;
+
+}
+html{
+    height: 100%;
+}
+header img{
+   float: left;
+   width: 200px;
+   height: 100px;
+   border-radius: 10px;
+}
+.description{
+    font-size: 25px;
+    
+}
+nav ul{
+list-style-type: none;
+background-color: #f9f9f9;
+margin: 0; 
+padding: 25px; 
+overflow: hidden;
+
+
+}
+nav ul li{
+    float: right;
+    padding: 15px;
+   
+
+}
+nav ul li a{
+    display: inline-block;
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+
+}
+nav ul li a:hover{
+    background-color: #EBB512;
+}
+
+    
+    
+    
+
+
+
+@keyframes appear{
+    from{
+        opacity:0;
+        scale: 0.5;
+        clip-path: inset(100% 100% 0 0);
+    }
+    to{
+        opacity:1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+footer{
+
+    text-align: center;
+    width: 100%;
+    margin-top: 150px;
+    background: #f9f9f9;
+}
+#footer h1{
+    font-weight: 600;
+    padding-top: 30px;
+    text-shadow: 0px 0px 1px black;
+
+}
+
+#footer span{
+    color: #ffa550;
+}
+
+.social-links i{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    background: black;
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.social-links i:hover{
+    background: #ffa550;
+}
+
+.content .form label {
+    font-size: large;
+
+}
+.content .form input[type="text"],input[type="email"],input[type="number"],input[type="password"]{
+    padding: 5%;
+
+
+}
+.content {
+    font-size:14px;
+    background-color: #EBB512;
+    justify-content: right;
+    background-position: right;
+    width: 90%;
+    max-width:fit-content;
+    margin: 50px auto ;
+    padding: 50px;
+    border-radius: 8px;
+    background-size:cover;
+}
+
+.home a {
+    text-decoration: none;
+    text-decoration: none;
+    text-align: left;
+    padding: 1%;
+    background-color: #EBB512;
+    width: 2%;
+    border-radius: 5%;
+}
+
+.advertisement {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+
+}
+.advertisement img {
+    width: 200px;
+    height: auto;
+    border-radius: 5%;
+}
+.advertisement2 {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+.advertisement2 img {
+    width: 200px;
+    height: auto;
+    border-radius: 5%;
+}
+@keyframes appear{
+    from{
+        opacity:0;
+        scale: 0.5;
+        clip-path: inset(100% 100% 0 0);
+    }
+    to{
+        opacity:1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+.advertisement{
+    animation: appear 2s linear;
+    animation-timeline: display(); 
+    animation-range: entry 30% cover 40%;
+}
+.advertisement2{
+    animation: appear 2s linear;
+    animation-timeline: display(); 
+    animation-range: entry 30% cover 40%;
+}
+

@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+#navBar{
+    background: #f9f9f9;
+}
+
+#logo{
+    font-size: 36px;
+    font-weight: 700;
+    color: black;
+    text-shadow: 0px 1px 1px black;
+    margin-bottom: 5px;
+
+}
+
+#logo span{
+    color: #ffa550;
+}
+.nav-toggler span{
+    color: #ffa550;
+}
+.navbar-nav{
+    margin-left: 20px;
+}
+.nav-item .nav-link{
+    font-size: 16px;
+    font-weight: 550;
+    color: black;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: 0.5s ease;
+}
+.nav-item .nav-link:hover{
+    background: #ffa550;
+    color: white;
+
+}
+.log .login{
+    background: orange;
+    color: white;
+    border: none;
+    display: inline-block;
+    width: 130px;
+    font-weight: 550;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    
+    
+}
+.log .signup{
+    background: orange;
+    color: white;
+    border: none;
+    display: inline-block;
+    width: 130px;
+    font-weight: 550;
+    font-size: 16px;
+    text-align: center;
+    transition: 0.5s;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.log .signup:hover{
+ width: 170px;
+}
+.log .login:hover{
+    width: 170px;
+}
+
+
+.home{
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 220px;
+}
+
+.home img{
+    width: 90%;
+    height: 120%;
+    text-align: center;
+    margin-left: 60px;
+}
+
+.main-txt h1{
+    text-align: center;
+    font-weight: 600;
+    margin-top: 30px;
+    text-shadow: 0px 1px 1px black;
+}
+
+.main-txt h1 span{
+  color: #ffa550;
+}
+.packages{
+    background: #f9f9f9;
+}
+
+.packages .card{
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    text-align: left;
+}
+
+.packages .card img{
+    border-radius: 5px;
+}
+
+.packages .card .card-body{
+    background: transparent;
+}
+
+.packages .card .card-body h3{
+   font-size: 25px;
+   font-weight: 600;
+
+}
+.packages .card .card-body p{
+    font-size: 15px;
+}
+.checked{
+    color: #ffa550;
+}
+star i{
+    font-size: 15px;
+}
+.packages .card .card-body h6{
+    font-size: 20px;
+}
+.packages .card .card-body a{
+    text-decoration: none;
+    background: #ffa550;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+
+.services{
+    background: #f9f9f9;
+    margin-top: 50px;
+}
+.services .card{
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    cursor: pointer;
+    border: none;
+}
+.services .card i{
+    text-align: center;
+    font-size: 80px;
+    margin-top: 2px;
+    color: #ffa550;
+}
+
+.services .card .card-body h3{
+    font-weight: 600;
+}
+
+#footer{
+
+    text-align: center;
+    width: 100%;
+    margin-top: 150px;
+    background: #f9f9f9;
+}
+#footer h1{
+    font-weight: 600;
+    padding-top: 30px;
+    text-shadow: 0px 0px 1px black;
+
+}
+
+#footer span{
+    color: #ffa550;
+}
+
+.social-links i{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    background: black;
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.social-links i:hover{
+    background: #ffa550;
+}
+
+
+
+
+
+
+
+
+
+
+
